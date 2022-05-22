@@ -1,0 +1,123 @@
+body {
+    font-family: 'Grape Nuts', cursive;
+    font-size:xx-large;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.dog{
+    width: 300px;
+    height: 300px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    position:relative;
+    top:100px;
+    left: 300px;
+    text-align: center;
+}
+.food{
+    width: 300px;
+    height: 300px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    position:relative;
+    top:100px;
+    left: 300px;
+    text-align: center;
+}
+.music{
+    width: 300px;
+    height: 300px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    position:relative;
+    top:100px;
+    left: 300px;
+    text-align: center;
+}
+.walk{
+    width: 300px;
+    height: 300px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    position:relative;
+    top:100px;
+    left: 300px;
+    text-align: center;
+}
+.title li {
+    font-size: medium;
+    font-weight: bold;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    list-style: none;
+    float: left; /*가로 배열*/
+    margin: 5px 5px;
+    padding: 5px;
+    position: relative;
+    top: 50px;
+    left: 85px;
+    margin-left: 290px; /*간격 벌리기*/
+}
+
+/*메인페이지를 제외한 다른 페이지로 이동할 때,
+fadein animation을 활용해 본문이 부드럽게 로딩되는 효과 설정법*/
+.background { 
+    animation: fadein 0.7s;
+    
+}
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+
+.h2 { text-align: center;
+    position: relative;
+    bottom: 1000px;
+    left: 500px;
+    font-size: x-large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*전체 메뉴 스타일*/
+#nav { 
+    list-style: none; /*불릿 없애기 옆에 뜨는 ● 이런거*/
+    height:20px;
+    padding:10px;
+    margin:10px;
+    text-align: center; /*메뉴 가운데 정렬*/
+}
+/*전체 메뉴의 리스트에 대한 스타일*/
+#nav li{
+  /*메뉴를 왼쪽부터 표시*/
+ position:relative; /*순서대로 표시*/
+ margin:10px 50px;
+ padding:50px;
+ display: inline; /*가운데 정렬*/
+}
+/*메인 메뉴 링크의 스타일*/
+#nav a{
+    display: block;
+    font-weight: bold; /*글자 진하게*/
+    font-size: 20px;
+    padding:7px 8px;
+    margin:0;
+    color:black; /*글자색 지정*/
+    text-decoration: none; /*글자 밑줄 없애기*/
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /*글자에 그림자 삼입*/
+    display:inline-block;
+    font-family: 'Grape Nuts', cursive;
+    font-size: xx-large;
+}
+/*메인메뉴 링크에 마우스 포인터를 올렸을 때 스타일*/
+#nav li:hover a{
+    background:none; /*배경색 지정*/
+    color: red; /*포인터 올렸을 때 글자색*/
+    margin:0;
+    padding:5px;
+}
