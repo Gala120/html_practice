@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>남학생의 숫자<span id="male">11</span></div>
+    <div>여학생의 숫자<span id="female">7</span></div>
+    <div>총인원<span id="target"></span></div>
+    <script>
+        // 총인원의 숫자를 12번째 줄 span에 출력하시오
+        
+        let input1 = document.querySelector('#male').innerHTML; // html 내용을 읽어온다
+        let input2 = document.querySelector('#female').innerHTML;
+        // html 문서에서 요소 id 선택자 중 '#id' 고유 이름의 선택자를 선택 후 
+        //그것을 java script에서 input1 이라는 변수로 선언 (라고해석함나는 맞는지 모름) 
+       // console.log(typeof input1); > string // 변수 input1의 타입이 string 이라서 
+        let male = parseInt(input1); // 문자에서 정수로 변환
+        let female = parseInt(input2);
+        let count = male + female;
+        document.querySelector('#target').innerHTML = count + "명"; 
+    </script>
+</body>
+</html>

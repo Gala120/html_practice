@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 선택자 반환? js로 반환?</title>
+</head>
+<body>
+    <!--html의 문서 요소 중 선택자를 지정해서 js로 가져와서 
+        변수로 선언하고 그 변수의 타입을 parseInt로 타입변환한 것을 또 변수로 선언 (문->정)
+        마지막으로 변수로 선언 할 것을 또 변수로 선언 후
+        최종적으로 html 문서의 어느 선택자를 = 이다 라고 선언하면
+        html에 = 선언한 내용이 출력된다.
+    -->
+    <div><span id="a">83.25</span></div>
+    <div><span id="result"></span></div>
+    <div><span id="b">35</span></div>
+    <div><span id="result2"></span></div>
+    <script>
+        // 83.25는 제곱미터다. 11번재줄에 몇평인지 출력
+        // 35는 섭씨온도다. 13번째줄에 화씨 온도를 출력
+        
+    let input1 = document.querySelector('#a').innerHTML;
+    let m2 = parseInt(input1);
+    let sum = Math.floor(m2 * 0.3025);
+    document.querySelector('#result').innerHTML = sum + "평";
+
+    let input2 = document.querySelector('#b').innerHTML;
+    let Celsius = parseInt(input2);
+    let Fahrenheit = (Celsius*1.8) +32;
+    document.querySelector('#result2').innerHTML = Fahrenheit + "화씨";
+    
+   
+    // 답안지
+    /* 
+    let 제곱미터입력 = document.querySelector('#m').innerHTML;
+    let 미터 = parseInt(제곱미터입력);
+    let 섭씨입력 = document.querySelector('#c').innerHTML;
+    let 섭씨 = parseInt(섭씨입력);
+    
+    let 평 = 미터/3.3;
+    let 화씨 = (섭씨*9/5) +32;
+
+    document.querySelector("p").innerHTML = 평;
+    document.querySelector("f").innerHTML = 화씨;
+    */
+    
+    </script>
+</body>
+</html>

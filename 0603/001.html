@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js">
+    </script>
+   
+    <title>babel 사용</title>
+</head>
+<body>
+    <div id="target"></div> <!-- <script>
+                                     document.querySelector('#target').innerHTML = "hello";
+                                    </script>
+                                    이 부분이 div보다 위에 있으면 오류가 나는데 그 이유는 script를 먼저 읽었기 때문이다.
+                                    위에서 아래로 읽으면서 내려오는데 div가 나중에 나오니까.
+                                -->
+    <script type="text/babel">
+        document.querySelector('#target').innerHTML = "hello";
+        // 성적들 > 합격, 불합격 > 합격자 숫자, 불합격자 숫자
+        // 입력 > 처리 > 출력 
+        // 1. 데이터의 종류 > type
+        // -string
+        console.log(typeof 'hello');
+        console.log(typeof "hello");
+        console.log(typeof `hello`);
+        // number
+        console.log(typeof 5);
+        // boolean
+        console.log(typeof false);
+        console.log(typeof true);
+        
+    </script>
+</body>
+</html>

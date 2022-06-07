@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--window.document. document 객체
+        객체에는 기능과 값이 들었다. -> 함수, 속성
+    -->
+    <div id="target"></div>
+    <div id="target2">Hello World</div>
+    <script>
+       // let target = document.querySelector('#target');
+       // target.innerHTML = "우리나라 좋은나라";
+       // ???
+        // constant 상수 (const) 상수를 만드는 과정을 '선언'이라 한다.(103p)
+        const target = document.querySelector('#target'); // html 요소를 js에 저장
+        target.innerHTML = "우리나라 좋은나라";
+
+        //target2의 내용을 읽어와 출력하시오
+        console.log(document.querySelector('#target2').innerHTML);
+        const target2 = document.querySelector('#target2')
+        console.log(target2.innerHTML);
+        
+    </script>
+</body>
+</html>

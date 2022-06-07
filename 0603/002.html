@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js type은 동적(dynamic 바뀔 수 있는것)이다.</title>
+</head>
+<body>
+    <script>
+        // 동적(dynamic) type --- 정적(static) type
+        console.log('5' + 3); // 53
+        console.log(typeof '5' + 3); // 53 typeof도 연산자
+                                     // typeof 가 우선순위가 높으므로 typeof '5'를 string
+                                     // 으로 변환 후 +3 = stiring3
+        console.log('5' - 3);    // 2
+        console.log('5' * 3);    // 15
+    </script>
+</body>
+</html>
