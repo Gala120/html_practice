@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>null</title>
+</head>
+<body>
+    <div id="target">
+
+    </div>
+    <script>
+        const target = document.querySelector('#target');
+        // const target2 = document.getElementById('target');
+        target.style.color = 'red';
+        target.innerHTML='김치찌개 제육덮밥';
+        console.log(target.id);
+        console.log(typeof target); // object 값들이 여러개 있다 그럼 객체.
+        // object / function에 대해서 아직 개념 미흡 
+        // object : 변수와 함수의 집합
+        
+        // null 
+        // null > 가리키는 대상이 없는 object
+        const target1 = document.querySelector('#targete'); // null 이름을 잘못주었기 때문
+        console.log(target1);
+        console.log(typeof target1);
+        console.log(target1.id);
+    </script>
+</body>
+</html>

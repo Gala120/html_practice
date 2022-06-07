@@ -1,0 +1,29 @@
+initializ 초기화
+
+자바(Java)에서 초기화는 객체를 선언하고 값을 최초로 할당하는 것이다. --> js에서도 마찬가지인가?
+int a = 10; 이렇게 작성한 것은 선언과 동시에 초기화한 것이고, 
+이후에 a = 20; 을 입력하면 초기화가 아니라 값을 바꾸는 할당(allocation)이 된다.
+
+undefined 는 변수에 값을 만든 후 초기화 하지 않은 상태 입니다.
+
+hoisting
+
+== : 값이 같음을 비교
+
+===  : strict 엄격한 equal operator 
+엄격하게 같음을 비교할 때 사용하는 연산자
+
+a===b 라고 하면, 값과 값의 종류(Data type)가 모두 같은지를 비교해서
+같으면 true, 다르면 false 라고 한다.
+
+let a; 
+console.log(a===undefined)
+undefined 비교가능
+null 비교가능
+NaN 비교불가능
+
+function
+
+undefined / null
+
+method

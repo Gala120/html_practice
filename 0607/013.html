@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var는 hoisting 된다</title>
+</head>
+<body>
+    <script>
+        //var를 사용할 때 선언은 hoisting 된다. hoisting : 함수 안에 있는 선언들을 모두 끌어올려서 해당 함수 유효 범위의 최상단에 선언하는 것을 말한다.
+        console.log(a); // Cannot access 'a' before initialization > js는 위에서 순서대로 읽는데 a를 선언하기 전에 이미 console.log를 한 상태
+        console.log(b); // undefined : 변수는 존재하나, 어떠한 값으로도 할당되지 않아 자료형이 정해지지(undefined) 않은 상태입니다.
+        let a = 10;
+        var b = 20; // var b; b=20;
+        /*
+        var b;
+        console.log(b);
+        b = 20;
+        */
+    </script>
+</body>
+</html>

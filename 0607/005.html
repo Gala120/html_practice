@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상수 104p</title>
+</head>
+<body>
+    <!--10이라는 값을 가지는 변수 a, '10'이라는 값을 가지는 변수 b를 한줄에 작성하시오-->
+    <script>
+        let a = 10, b = '10';
+        const z=10;
+
+        a=a+1;
+        z=z+1;
+        // Uncaught TypeError TypeError: Assignment to constant variable.
+        // 한번 선언 된 상수의 자료는 변경 불가. (상수는 한번 정의하면 변하지 않는 값)
+        // 왜냐하면 상수란 수식에서 변하지 않는 값 즉, 변수와는 반대
+    </script>
+</body>
+</html>
