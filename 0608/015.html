@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    첫번째 값 : <input type="number" id="value1">
+    두번째 값 : <input type="number" id="value2">
+    <button onclick="plus()">더하기</button>
+    <div>덧셈 결과 : <span id="result"></span></div>
+    <script>
+        function plus() {
+            const a = document.querySelector('#value1').value;
+            const $value1 = parseInt(a);
+            const b = document.querySelector('#value2').value;
+            const $value2 = parseInt(b);
+            const sum = $value1 + $value2;
+            document.querySelector('#result').innerHTML = sum;
+        }
+    </script>
+</body>
+</html>

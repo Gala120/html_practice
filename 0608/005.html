@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 길이</title>
+</head>
+<body>
+    <script>
+        const str = "Hello";
+        // 객체 소속의 값 : 속성
+        console.log(str.length);
+        // 객체 소속의 함수 : method
+        console.log(str.substring(1,2));
+        console.log(str.substr(1,2));
+
+        // js는 기본타입에 대한 객체를 가지고 있다(내장 객체)
+        // number > number, string > string...
+        // string에 .을 찍는 순간 js는 기본타입을 내장 객체 타입으로 변환해 메소드나 속성을 사용 후 다시 기본타입으로 돌려 놓는다
+    </script>
+</body>
+</html>
