@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count</title>
+    <script>
+        let count = 0;
+        function init() {
+            document.querySelector('#num').innerHTML = count; // 화면에 0 출력
+        }
+        function 증가() {
+            count ++; // 1씩 증가
+            document.querySelector('#num').innerHTML = count;
+        }
+    </script>
+</head>
+<body onload="init()"> <!--onload js를 head로 끌어 올릴 수 가 있다. body가 먼저 로딩 된 뒤에 function init이 발생된다.-->
+    <!--카운터-->
+    <div id="num"></div>
+    <button onclick="증가();">증가</button>
+</body>
+</html>

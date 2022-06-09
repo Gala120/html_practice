@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const off = "bul_off.gif";
+        const on = "bul_on.gif";
+
+        function offbulb() {
+            document.querySelector('#bulb_image').src=off;
+        }
+        function onbulb() {
+            document.querySelector('#bulb_image').src=on;
+        }
+    </script>
+</head>
+<body onload="offbulb();">
+    <img id="bulb_image">
+    <button onclick="offbulb();">끕니다</button>
+    <button onclick="onbulb();">켭니다</button>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const off = "bul_off.gif";
+        const on = "bul_on.gif";
+        function turnoff () {
+            document.querySelector('#bulb_image').src=off;
+        }
+        function turnon() {
+            document.querySelector('#bulb_image').src=on;
+        }
+       
+    </script>
+</head>
+<body onload="turnoff();">
+    <h1>자바스크립트 전구</h1>
+    <button onclick="turnon();">turn on</button>
+    <img id="bulb_image">
+    <button onclick="turnoff();">turn off</button>
+</body>
+</html>
