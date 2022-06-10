@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        짜장, 짬뽕, 볶음밥 -> select
+        탕수육, 깐풍기, 라조기 -> checkbox
+
+        select나 checkbox에서 선택하면 배열에 추가해서 출력하시오
+        [짜장, 짬뽕, 탕수육]
+    -->
+    <select id="menu">
+        <option value="짜장">짜장</option>
+        <option value="짬뽕">짬뽕</option>
+        <option value="볶음밥">볶음밥</option>
+    </select>
+    
+    <button onclick="add();">추가</button>
+ <script>
+     const ar=[];
+     let index=0;
+     function add() {
+     const menu = document.querySelector('#menu').value;
+     ar[index] = menu;
+     console.log(ar);
+     index++;
+     }
+     // https://choar816.tistory.com/164 vampire survival javasrcipt clone coding 
+     // https://muko-developer.tistory.com/entry/%EA%B3%84%EC%82%B0%EA%B8%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0-%ED%86%A0%EC%9D%B4-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81-Javascript-%EC%9E%85%EB%AC%B8-14?category=900445
+     // calculator create
+ </script>
+   
+   
+</body>
+</html>

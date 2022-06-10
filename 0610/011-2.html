@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #page {
+            width:800px;
+            margin: 0 auto;
+        }
+        #canvas2 {
+            height:400px;
+        }
+        input {
+            width: 70%;
+        }
+    </style>
+</head>
+<body onload="changeColor()">
+    <div id="page">
+            <div id="canvas2"></div>
+            <div>
+                Blue<input type="range" min="0" max="255" id="blue" onchange="changeColor()">
+                <span id="blue_span"></span>
+            </div>
+    </div>
+    <script>
+        function changeColor() {
+            const canvas2 = document.querySelector('#canvas2');
+
+            const blueInput = document.querySelector('#blue');
+            const blueSpan = document.querySelector('#blue_span');
+            const blue = blueInput.value;
+            blueSpan.innerHTML = blue;
+
+            canvas2.style.backgroundColor = `rgb(0,0,${blue})`;
+        }
+    </script>
+</body>
+</html>

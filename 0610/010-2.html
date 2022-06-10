@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--국어, 영어 성적을 입력받아 평균이 90이상이면 우수
+        70이상이면 통과, 미만이면 재시험
+    -->
+    <div>
+        <span>국어<input type="number" id="kr"></span>
+    </div>
+    <div>
+        <span>영어<input type="number" id="eng"></span>
+    </div>
+    <button onclick="input()">입력</button>
+   
+        <script>
+            function input() {
+                const korea = document.querySelector('#kr');
+                const english = document.querySelector('#eng');
+
+                const krval = parseInt(korea.value);
+                const engval = parseInt(english.value);
+                const result = (krval+engval)/2;
+                
+                if(krval>100 || engval>100) {
+                    alert('오류');
+                     // 함수종료
+                    return;
+                    }
+
+                if (result>=90) {
+                    alert('우수');
+                } else if (result>=70) {
+                    alert('통과');
+                } else {
+                    alert('재시험');
+                }
+                
+            }
+        </script>
+</body>
+</html>

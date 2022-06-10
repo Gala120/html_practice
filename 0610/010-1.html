@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <select id="op">
+        <option disabled selected>선택</option>
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type="text" id="num2">
+    <button onclick="cal()">계산</button>
+    <input type="text" id="sum" disabled>
+    
+    <script>
+        function cal() {
+            const val1 = document.querySelector('#num1');
+            const val2 = document.querySelector('#num2');
+            const sel = document.querySelector('#op');
+            const result = document.querySelector('#sum');
+            
+            const value1 = parseInt(val1.value);
+            const value2 = parseInt(val2.value);
+            
+
+            let calcResult
+
+            if (sel.value==="+") {
+                calcResult = value1 + value2;
+            } else if (sel.value==="-") {
+                
+            }
+            result.value = calcResult;
+        }
+    </script>
+</body>
+</html>
