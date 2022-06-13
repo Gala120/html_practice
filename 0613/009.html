@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() { 
+            // 자바스크립트는 위치에 따라 오류가 날 수 있다.
+            // 코드를 onload 안에 집어넣으면 자바스크립트가 위치에 상관없이 실행가능.
+
+            even.onclick = function() {
+                const input = document.querySelector('#value');
+                const parseinput = parseInt(input.value);
+                const result_even = parseinput%2===0? '짝수' : '짝수가 아닙니다';
+                    alert(result_even);
+                }
+
+            odd.onclick = function() {
+                const input = document.querySelector('#value');
+                const parseinput = parseInt(input.value);
+                const result_odd = parseinput%2!==0? '홀수' : '홀수가 아닙니다';
+                    alert(result_odd);
+                }
+            }
+    </script>
+</head>
+<body>
+    <input type="text" id="value">
+    <button id="even">짝수판정</button>
+    <button id="odd">홀수판정</button>
+</body>
+</html>

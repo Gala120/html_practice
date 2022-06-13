@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--마우스엔터, 클릭 두 이벤트 처리
+        엔터되면 배경색을 노랑, 클릭하면 글자색을 빨강
+    -->
+    <p id="target" onmouseenter="b_yel()">하나둘셋</p>
+    <script>
+        function b_yel() {
+            document.querySelector('#target').style.backgroundColor = 'yellow';
+        }
+        function c_red() {
+            document.querySelector('#target').style.color = 'red';
+        }
+        const p = document.querySelector('#target');
+        p.onclick = c_red;
+
+        /*
+        const a =document.querySelector('#target');
+
+        a.onmouseenter = toYellow;
+            function  toYellow() {
+                a.style.backgroundColor = 'yellow';
+        }
+        // 바로 함수 선언시 이름 생략 가능 여기서는 toRed 위에서는 =toyellow 라고 해놓고 toyellow 함수 toyellow는 ~다 를 밑에 나열했고 함수 내용을 toyellow에 대입하는 형식
+        밑에서는 바로 =function을 했기 때문에 바로 적용되므로 이름 필요 없음. js는 함수 이름을 생략해도 문제가 없으면 생략 가능.
+        a.onclick = function () { -> 이름이 없는 함수 = 익명 함수 즉, 이름이 필요없으면 붙이지 마라.
+            a.style.color = 'red';
+        }
+
+        이벤트를 만들 때 html에 직접 지정 할 수 있다 <div=id"어쩌고" onclick="함수이름">
+        그러나 분업화를 하기 위해서 html 선택자를 선언한다음 선택자이름.이벤트이름 = 함수 형식으로 작업하는게 효율적이다. (js방식)
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <input type="number" id="score">
+        <button id="result">3의배수 판정</button>
+        <button id="result2">5의배수 판정</button>
+        <script>
+            
+            // 숫자를 입력한 후 버튼을 각각 배수여부를 판정해 출력하시오
+            
+            const result = document.querySelector('#result');
+            result.onclick = function() {
+            const sum = document.querySelector('#score').value;
+            const number_sum = parseInt(sum);
+             const real_sum = number_sum%3===0? '3의 배수' : '3의 배수 아님';
+                console.log(real_sum);
+            }
+
+            const result2 = document.querySelector('#result2');
+            result2.onclick = function() {
+            const sum = document.querySelector('#score').value;
+            const number_sum = parseInt(sum);
+              const real_sum2 = number_sum%5===0? '5의 배수' : '5의 배수 아님';
+              console.log(real_sum2)
+            }
+                
+
+            /*
+            const result = document.querySelector('#result');
+                result.onclick = function() {
+                const input = document.querySelector('#score').value;
+                const value = parseInt(input);
+                real_sum = value%3===0? '3의 배수' : '3의 배수 아님';
+                alert(real_sum);
+            }
+            
+            document.querySelector('#result2').onclick = function() {
+                const input = document.querySelector('#score').value;
+                const value = parseInt(input);
+                const real_sum = value%3===0? '5의 배수' : '5의 배수 아님';
+                alert(real_sum);
+            }
+            */
+        </script>
+   
+</body>
+</html>

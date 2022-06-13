@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 10, b = 20;
+        //증감연산자는 위치에 상관없이 변수를 증감시킴
+        // 다른 연산과 함께 사용하면 전위는 증감부터, 후위는 다른 연산부터
+        let c = a++; // a를 c에 대입한 이후에 ++; 실행
+        let d = ++b;
+        
+        // a:11 , b:11 , c:10 , d:11
+
+        console.log(c); // 우선 대입 후 증가는 안하는듯??
+        console.log(d); // 증가 후 대입
+    </script>
+</body>
+</html>
