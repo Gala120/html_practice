@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //js는 어디 있어도 된다
+        window.onload = function() {
+            const korinput = document.querySelector('#kor');
+            const enginput = document.querySelector('#eng');
+            const panjung = document.querySelector('#panjung');
+
+            panjung.onclick = function() {
+                const kor = parseInt(korinput.value);
+                const eng = parseInt(enginput.value);
+                const result = kor>=70&&eng>=70? '통과' : '재시험';
+                alert(result); 
+            }
+        }
+    </script>   
+</head>
+<body>
+    <input type="text" id="kor">
+    <input type="text" id="eng">
+    <button id="panjung">판정</button>
+</body>
+</html>
