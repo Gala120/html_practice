@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            const ar = [
+            {kor:77, eng:80}, {kor:75, eng:70}, {kor:80, eng:90}
+    ];
+
+    // 국어점수의 합계, 영어점수의 합계, 전체 합계
+
+        let sum_kor = 0;
+        let sum_eng = 0;
+        let sum = 0;
+    for(const lecture of ar) {
+        sum_kor = sum_kor + lecture.kor;
+        sum_eng = sum_eng + lecture.eng;
+    }
+    const result = sum_kor + sum_eng;
+    console.log(`국어점수의 합계: ${sum_kor}, 영어점수의 합계: ${sum_eng} 전체 합계: ${result}`);
+    </script>
+
+    
+
+</body>
+</html>

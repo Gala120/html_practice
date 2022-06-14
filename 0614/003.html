@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            func1 : function() {
+                //일반 함수
+                console.log("===============");
+                console.log(this);
+            },
+            func2 : ()=>{
+                //화살표 함수
+                //화살표 함수의 this 브라우저를 가리킨다.
+                //js의 this는 고정되어 있지 않다.(바뀔수있다)
+                console.log("##################");
+                console.log(this);
+            }
+        };
+        obj.func1();
+        obj.func2();
+        //window 객체는 웹 브라우저의 창(window)을 나타내는 객체
+        //일반함수와 화살표함수의 용도가 다르다
+    </script>
+</body>
+</html>
+
