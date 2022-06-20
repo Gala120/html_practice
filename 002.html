@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let 일기 = null;
+    const key = '92405178b6d991b3e22f278fb69b7e7b';
+    const url = `http://api.openweathermap.org/geo/1.0/direct?q=Incheon&limit=5&appid=${key}`;
+    async function getPosition() {
+       const result = await $.ajax(url);
+       위도 = result[0].lat;
+       경도 = result[0].lon;
+    }
+    async function getWeather() {
+        const url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${위도}&lon=${경도}&exclude={part}&appid=${key}&units=metric`
+    
+        const result2 = await $.ajax(url2);
+        날씨 = result2.current;
+        주간 = result2.daily;
+        현재온도 = result2.current.temp;
+        최저온도 = result2.daily[0].temp.min;
+        최고온도 = result2.daily[0].temp.max;
+        습도 = result2.current.humidity;
+        자외선 = result2.current.uvi;
+        상태 = result2.current.weather[0].description;
+    }
+    async function getAir() {
+        const url3 = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${위도}&lon=${경도}&appid=${key}`
+
+        const result3 = await $.ajax(url3)
+        pm10 = result3.list[0].components.pm10
+        pm2_5 = result3.list[0].components.pm2_5
+       
+        일기 = {위도, 경도, 날씨, 주간, 현재온도, 최저온도, 최고온도, 습도, 자외선, 상태, pm10, pm2_5};
+        console.log(일기);
+    }
+    $(document).ready(async function(){
+        await getPosition();
+        await getWeather();
+        await getAir();
+    })
+
+    
+    </script>
+</body>
+</html>

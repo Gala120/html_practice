@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>날씨 api 연습</title>
+</head>
+<body>
+    <script>
+        const key = '92405178b6d991b3e22f278fb69b7e7b';
+
+        async function getPosition() {
+        const url = `http://api.openweathermap.org/geo/1.0/direct?q=Incheon&limit=5&appid=${key}`
+        const result = await $.ajax(url);
+        console.log(result);
+        위도 = result[0].lat;
+        경도 = result[0].lon;
+        console.log(위도, 경도);
+    }
+    $(document).ready(async function(){
+        await getPosition();
+    })
+    </script>
+</body>
+</html>
