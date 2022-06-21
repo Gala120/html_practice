@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>5명의 회원 데이터를 출력</title>
+</head>
+<body>
+    <script>
+        async function getApiData() {
+            const url = 'http://sample.bmaster.kro.kr/contacts?pageno=1'
+            return await $.ajax(url);
+        }
+        //구조분해할당
+        //변수를 모아 객체를 또는 객체를 변수로 분해
+        // const no=1, name='홍길동';
+        // const obj = {no, name}; // {"no":no, "name":name}
+
+        //const {No, namoe} = obj;
+        // ---
+        // function printApiData({pageno, pagesize, totalcount, contacts}) 
+        // 이것을 구조분해할당으로 하면 
+        function printApiData({contacts}) {
+        // no, name, address
+            const $tbody = $('#list');
+            for(const c of contacts) {
+                const $tr = $('<tr>').appendTo($tbody);
+                $('<td>').text(c.no).appendTo($tr);
+                    $('<td>').text(c.name).appendTo($tr);    
+                        $('<td>').text(c.address).appendTo($tr);    
+    
+            }
+    }
+        // 만약 구조분해할당을 안할시 
+        // function printApiData(data) {
+        // const result = data.contact 뭐 이런식으로 해야된다.    
+       // }
+        $(document).ready(async function(){
+            let data = await getApiData();
+            printApiData(data)
+        });
+    </script>
+    <table>
+        <tbody id="list">
+            
+        </tbody>
+    </table>
+</body>
+</html>

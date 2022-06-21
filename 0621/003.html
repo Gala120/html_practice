@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+
+        // 1.첫번째 함수의 데이터
+        function getApiData() {
+           const result =  [{no:1, name:'홍길동'}, {no:2, name:'전우치'}];
+           return result;
+        }
+
+        // 4.그리고 여기 함수의 매개변수에 data를 넣어주면 첫번째 함수의 데이터값을 2번째 함수로 옮기게 된다.
+        function printApiData(data) {
+            const $tbody = $('#list');
+            for (const d of data) {
+                // const 자식 = 자식.appendTo(부모)
+                const $tr = $('<tr>').appendTo($tbody);
+                $('<td>').text(d.no).appendTo($tr);
+                $('<td>').text(d.name).appendTo($tr);
+            }
+        }
+
+        // 이벤트 핸들러
+        $(document).ready(function() { // 0.ready는 함수의 부모요소라 생각
+        let data = getApiData();// 2.첫번째 함수의 데이터를 얻어와 data라는 변수에 저장
+        printApiData(data); // 3.printApiData 함수의 매개변수에 data를 입력 
+        })                  // data는 = getApiData고 이것은 결국 위의 함수 getApiData의 데이터 result 값들
+    </script>
+    <table> <!--줄 맞출때는 div보다 table이 더 편하다. -->
+        <tbody id="list">
+            <tr><td></td></tr>
+        </tbody>
+    </table>
+</body>
+</html>
