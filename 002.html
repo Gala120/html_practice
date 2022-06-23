@@ -5,48 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Document</title>
+
+    <title>날씨</title>
 </head>
 <body>
+    <div id="app">
+        <div id="btn">
+
+        </div>
+    </div>
+    
     <script>
-    let 일기 = null;
-    const key = '92405178b6d991b3e22f278fb69b7e7b';
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=Incheon&limit=5&appid=${key}`;
-    async function getPosition() {
-       const result = await $.ajax(url);
-       위도 = result[0].lat;
-       경도 = result[0].lon;
-    }
-    async function getWeather() {
-        const url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${위도}&lon=${경도}&exclude={part}&appid=${key}&units=metric`
-    
-        const result2 = await $.ajax(url2);
-        날씨 = result2.current;
-        주간 = result2.daily;
-        현재온도 = result2.current.temp;
-        최저온도 = result2.daily[0].temp.min;
-        최고온도 = result2.daily[0].temp.max;
-        습도 = result2.current.humidity;
-        자외선 = result2.current.uvi;
-        상태 = result2.current.weather[0].description;
-    }
-    async function getAir() {
-        const url3 = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${위도}&lon=${경도}&appid=${key}`
 
-        const result3 = await $.ajax(url3)
-        pm10 = result3.list[0].components.pm10
-        pm2_5 = result3.list[0].components.pm2_5
+    const cities = [
+        {name: '인천', code:'Incheon'},
+        {name: '도쿄', code:'Tokyo'},
+        {name: '하노이', code:'HaNoi'},
+        {name: '방콕', code:'Bangkok'}
+    ]
+    const $btn = $('#btn');
+
+    function getCities() {
+        for(let i=0; i<cities.length; i++) {
+            $('<button>').attr('data-cno', i).text(cities[i].name).appendTo($btn)
+        }
+    }
+        getCities();
+
+        const key = "92405178b6d991b3e22f278fb69b7e7b";
+        let cno = 0;
        
-        일기 = {위도, 경도, 날씨, 주간, 현재온도, 최저온도, 최고온도, 습도, 자외선, 상태, pm10, pm2_5};
-        console.log(일기);
+   
+    async function getPosition() {
+        const positionUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cities[cno].code}&limit=5&appid=${key}`;
+        const pUrl = await $.ajax(positionUrl)
+        console.log(pUrl[0].lat, pUrl[0].lon)
     }
-    $(document).ready(async function(){
-        await getPosition();
-        await getWeather();
-        await getAir();
+        
+        $('#btn button').on('click', function(){
+        cno = $(this).attr('data-cno');
+        console.log(`${cities[cno].name}`);
+        getPosition()
     })
-
-    
     </script>
+
 </body>
 </html>
+<!--선택한 도시를 이용해 위도, 경도를 얻어오는 메소드 추가-->
+<!--5. 위도와 경도를 리턴해 ready 이벤트 핸들러에 저장한다-->
