@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <div id="buttons"></div>
+    </div>
+    <script>
+   
+        // for(city of cities) of 반복문
+        // for(let i=0; i<cities.length; i++) for 반복문
+        // 위의 2개를 합친게 = cities.forEach((city, i)=>{
+        //  })
+/*
+        function init(cities, $buttons) {
+          for(let i=0; i<cities.length; i++) {
+            $('<button>').attr('data-cno', i).text(cities[i].name).appendTo($buttons);
+          }
+        }
+*/
+        //2번
+        const init = (cities) => {
+        const $buttons = $('#buttons');
+        cities.forEach((city, i)=> {
+            $('<button>').attr('data-cno', i).text(city.name).appendTo($buttons);
+        })
+    }
+                        // parameter city, key, url
+                        // argument cities[cno].code, key, positionUrl
+                        // 차례대로 짝꿍
+        const getPosition=async (city, key, url)=>{
+            // 요청 파라미터 : `?q=도시이름&appid=API키`;
+            // $.ajax는 요청 파라미터를 객체로 만들어 놓으면 자동으로 urlencoded 변환
+            const params = {q:city, appid:key};
+            // $.ajax : 비동기작업 -> 병렬로 실행 (동시실행)
+            const result = await $.ajax ({url: url, data: params});
+            // $.ajax에 await안걸고 결과를 출력하면 Promise 객체 
+            // Promise 객체는 비동기 작업의 결과를 의미(성공인지 실패인지?)하는 객체
+
+            // 위경도를 ready 핸들러로 돌려보내 저장하자
+            return {위도: result[0].lat, 경도: result[0].lon};
+        }
+
+    $(document).ready(async ()=>{
+        //1번
+        const cities = [
+        {name: '인천', code:'Incheon'},
+        {name: '도쿄', code:'Tokyo'},
+        {name: '하노이', code:'HaNoi'},
+        {name: '방콕', code:'Bangkok'}
+    ]
+        const key = "ac7bd84b82bde1e5e29c4da01645c10e";
+        const positionUrl = `https://api.openweathermap.org/geo/1.0/direct`;
+        const airUrl = `https://api.openweathermap.org/data/2.5/air_pollution`;
+        const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall`;
+        let cno = 0;
+        init(cities);
+        let Position = await getPosition(cities[cno].code, key, positionUrl);
+        console.log(Position);
+        // $('button').on('click', function() {
+        //  }); = .click(()=>{ })
+        //3번
+        $('button').on('click', function(){
+
+        
+            //함수에서 this는 window
+            //메소드(객체소속 함수)에서 this는 객체
+            //이벤트핸들러에서 this는 이벤트가 발생한 html 요소
+            //화살표 함수에서 this는 window다 -> 이벤트에서 this가 필요한 경우 사용 x
+            // const $cno를 쓰면 왜 못쓸까? 
+            // cno라고 하면 변수 선언을 안하고 쓰니까 지역변수가 아닌 전역변수가 되어서 쓸수있게 되는거같다.
+            cno = parseInt($(this).attr('data-cno'));
+            getPosition(cities[cno].code, key, positionUrl);
+            
+        })
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>날씨</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="btn"></div>
+    </div>
+
+    <script>
+      const cities = [
+        { name: "인천", code: "Incheon" },
+        { name: "도쿄", code: "Tokyo" },
+        { name: "하노이", code: "HaNoi" },
+        { name: "방콕", code: "Bangkok" },
+      ];
+      const $btn = $("#btn");
+
+      function getCities() {
+        for (let i = 0; i < cities.length; i++) {
+          $("<button>").attr("data-cno", i).text(cities[i].name).appendTo($btn);
+        }
+      }
+      getCities();
+
+      const key = "92405178b6d991b3e22f278fb69b7e7b";
+      let cno = 0;
+
+      async function getPosition() {
+        const positionUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cities[cno].code}&limit=5&appid=${key}`;
+        const pUrl = await $.ajax(positionUrl);
+        const 위도 = pUrl[0].lat
+        const 경도 = pUrl[0].lon
+        console.log(pUrl[0].lat, pUrl[0].lon);
+        const airPollutionUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${위도}&lon=${경도}&appid=${key}`
+        const aUrl = await $.ajax(airPollutionUrl);
+        console.log(aUrl);
+        const pm10 = aUrl.list[0].components.pm10;
+        console.log(pm10);
+      }
+      getPosition();
+      $("#btn button").on("click", function () {
+        cno = $(this).attr("data-cno");
+        console.log(`${cities[cno].name}`);
+        getPosition();
+      });
+      
+    </script>
+  </body>
+</html>
+<!--선택한 도시를 이용해 위도, 경도를 얻어오는 메소드 추가-->
+<!--5. 위도와 경도를 리턴해 ready 이벤트 핸들러에 저장한다-->
+<!--6. 위도와 경도를 가지고 날씨와 공기 정보를 얻어오는 메소드 추가-->
+<!--https://hasaway1.github.io/example2/ 날씨 앱 작성-->
