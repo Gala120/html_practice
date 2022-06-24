@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function(함수) - 데이터 반환하기</title>
+</head>
+<body>
+    <script>
+    /* weather api, todo list create 24~26 perfect practice */
+
+
+    //  return(리턴, 반환) 해주는 함수에 대해서 알아보자
+    // return 함수 정의
+    // return 이란 것은 함수를 호출했을 때, 함수가 값을 반환한다는 의미.
+    // 함수를 호출? 함수가 값을 반환?
+    // argument가 하나인 multiplyTen 함수를 정의하고 반환하는 함수를 예시
+
+    function multiplyTen(myNumber) { // 함수 정의
+        return 10 * myNumber;
+        multiplyTen(3); // return 함수 호출
+        multiplyTen(6);
+        multiplyTen(12);
+    }
+    let result = multiplyTen(3);  // 호출을 하긴 했지만 어떤 값을 리턴했는지 모르므로 호출된 함수의 return 값을 변수에 저장
+    console.log(result);
+    console.log(multiplyTen(6));
+    console.log(multiplyTen(12));
+
+    function consoleSuccess(month, name) {
+        console.log(month, name);
+    }
+    let result2 = consoleSuccess("3", "김개발");
+    console.log("consoleSuccess 호출 값은:" + result);
+    </script>
+</body>
+</html>
+
+<!--https://velog.io/@jakeseo_me/2019-03-15-2303-%EC%9E%91%EC%84%B1%EB%90%A8-rmjta5a3xh 
+자바스크립트 개발자라면 알아야 할 33가지 개념
+
+https://velog.io/@milkyway/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC
+자바스크립트 작동 원리
+-->

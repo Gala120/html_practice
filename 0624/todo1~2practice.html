@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>1. 할 일 정의 + 2. 할 일 출력</title>
+    <style>
+     
+    </style>
+</head>
+<body>
+    <script>
+        const getList = (todos) => {
+            const $ul = $('#todos');
+            // $ul.empty() // 이건 왜 쓰는거지?
+
+           //forEach문을 쓴 이유가 뭘까?
+            
+           todos.forEach((list, index)=>{
+            const $li = $('<li>').attr('class', list).attr('data-index', index).appendTo($ul);
+                if(list.done===true) {
+                    $("<span class='title'>").text(list.title).css('text-decoration', 'line-through').addClass('done').appendTo($li) //.addClass('done')을 왜 쓰는거지?
+                    // 스타일을 부여하기 위해 사용? 그냥 .css 붙이면 되는거아닌가? title이 title done 되는건데 이게 뭐??
+                    // 스타일 부여 방법이 attr, css, addClass인데
+                    // attr, css는 inline 형태로 스타일 부여되는데
+                    // 코드와 스타일이 분리되지 않는다
+                    // 이게 뭔 의미지? 코드와 스타일이 그럼 하나로 묶여있어서
+                    // 하나 지우면 다 지워진다는건가? 아니 css 없애고싶으면
+                    // 그냥 지우면 되던데 뭘 의미하는거지??
+                } else {
+                    $("<span class='title'>").text(list.title).appendTo($li);
+                }
+                $("<span>").attr("class", "close").text("X").appendTo($li);
+            });
+        };
+        
+        $(document).ready(()=>{
+            const todos = [
+                { title : "영화보기", done:false },
+                { title : "주말 산책", done: true},
+                { title : "ES6 학습", done: false},
+                { title : "잠실 야구장", done: false}
+            ];
+            getList(todos);
+        });
+    </script>
+    <div id="app">
+        <input type="text" id="input" placeholder="입력 후 엔터!">
+        <button id="add">추가</button>
+        <ul id="todos">
+
+        </ul>
+    </div>
+</body>
+</html>
