@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+        // 1. list.html?pageno=??에서 pageno를 추출(location.search)
+        // 2. 만약 숫자가 아니라면 pageno에서 1을 주자
+        // 3. pageno와 pagesize(10)로 api 서버에 요청을 보내자
+        // 4. 응답의 contacts를 가지고 #list에 번호, 이름, 주소, 연락처 출력
+        // 5. 이름에 read.html로 가는 링크를 건다
+        // 6. pageno, pagesize, totalcount로 prev, start, end, next를 계산
+        // 7. 계산한 정보로 pagination을 출력
+        // 8. pagination 가운데 정렬
+
+
+        const printContacts = (contacts)=>{
+            const $list = $('#list')
+            contacts.forEach(c=>{
+                const $tr = $('<tr>').appendTo($list);
+                    $('<td>').text(c.no).appendto($tr);
+                       const $td = $('<td>').appendTo($tr);
+                        $('<a>').attr('href',`read.html?no=${c.no}`).text(c.name).appendTo($td);
+                            $('<td>').text(c.address).appendTo($tr);
+                                $('<td>').text(c.tel).appendTo($tr);
+            })
+        }
+        const getPagination = ()=>{}
+        const printPagination = ()=>{}
+
+        $(document).ready(async ()=>{
+            // 1번(위의 번호와 무관)
+            const getPageno = ()=>{
+            // pageno를 정확히 입력하면 parseInt한 결과는 number
+            const str = location.search.substr(8);
+           
+            // URL 파라미터 값 가져오기 > location.search
+            // 만약 빈문자열이라면(pageno가 없는 경우) 1로 바꾼다
+            // return (pageno==='') ? 1 : parseInt(pageno);
+
+            const pageno = parseInt(str);
+            if(isNaN(pageno)===true) {
+                return 1;
+            } else {
+                return pageno;
+            }
+        }
+            
+        // 2번
+        const getResponse = async (pageno, pagesize=10)=>{
+            const url='http://sample.bmaster.kro.kr/contacts';
+            const params = {pageno:pageno, pagesize:10};
+            return await $.ajax({url:url, data: params});
+        }
+            const pageno = getPageno();     //1, 2
+            const response = await getResponse(pageno);
+      
+            
+            printContacts(response);        //4, 5
+            const pagination = getPagination(response);
+            printPagination(pagination);
+            
+        })
+    </script>
+</head>
+<body>
+    <div id="page">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>주소</th>
+                    <th>연락처</th>
+                </tr>
+            </thead>
+            <tbody id="list">
+
+            </tbody>
+        </table>
+        <ul class="pagination">
+
+        </ul>
+    </div>
+</body>
+</html>
